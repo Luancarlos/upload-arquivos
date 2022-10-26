@@ -43,7 +43,7 @@ $ npm start
 
 <br>
 
-### Passos para o funcionamento local - aplicação back com com docker
+### Passos para o funcionamento local - aplicação back com docker
 Back-end (API) será executada na porta **8080**.<br>
 Front-end será executado na porta **4200**.
 
