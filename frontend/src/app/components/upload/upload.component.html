@@ -1,0 +1,37 @@
+<mat-card id="card">
+  <mat-card-title>Upload de arquivos</mat-card-title>
+  <mat-card-content>
+    <div ng2FileDrop
+      [uploader]="uploader"
+      (fileOver)="fileOverBase($event)"
+      [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
+      class="well my-drop-zone">
+        <mat-icon id="icon_upload">cloud_upload</mat-icon>
+        Arrate e Solte ou <span>
+          Clique aqui
+          <input type="file" ng2FileSelect [uploader]="uploader" multiple accept=".xml" />
+        </span>
+    </div>
+
+    <div id="actions">
+      <button mat-button id="cancelar" (click)="cancelar()">Cancelar</button>
+      <button mat-raised-button color="primary" [disabled]="!uploader.queue.length" (click)="enviar()">Enviar</button>
+    </div>
+
+    <mat-card class="card-item" *ngFor="let item of uploader.queue">
+      <div id="left">
+        <mat-icon>description</mat-icon>
+      </div>
+      <div id="center">
+        <h4>{{ item?.file?.name }}</h4>
+        <p>{{ item?.file?.size / 1024 | number:'1.0-0' }} KB</p>
+      </div>
+      <div id="right">
+        <button mat-icon-button (click)="item.remove()" class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </mat-card>
+
+  </mat-card-content>
+</mat-card>
