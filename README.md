@@ -23,6 +23,7 @@ $ ./mvnw package
 ### Efetuar o build do front-end
 acessar a pasta ./front
 ```shell script
+$ npm install
 $ npm run build
 ```
 
